@@ -1,0 +1,45 @@
+<!-- Tạo web thêm/ xóa/ sửa danh sách học sinh -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý học sinh</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            margin: 0 20%;
+        }
+
+        #add-student-form {
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Phần mềm quản lý học sinh</h1>
+    <form id="add-student-form">
+        <input type="text" placeholder="Nhập họ và tên học sinh" id="student-name-inp" required>
+        <br>
+        <input type="number" placeholder="Nhập điểm trung bình" id="student-score-inp" required min="0" max="10">
+        <br>
+        <button type="submit">Thêm học sinh</button>
+    </form>
+
+    <!-- danh sách học sinh + điểm trung bình (in đỏ học sinh có điểm cao nhất) -->
+    <h2>Danh sách học sinh</h2>
+    <ol id="student-list">
+        <!-- <li>Student name (9.8) <button>Add</button> <button>Del</button></li> -->
+    </ol>
+
+
+    <!-- script -->
+    <script src="./js/crud_students.js"></script>
+</body>
+
+</html>

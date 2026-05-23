@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="f_dangki">
+        <input type="text" name="" id="name" placeholder="Nhập tên người dùng">
+        <input type="email" name="" id="email" placeholder="Nhập email">
+        <button type="submit">Gửi</button>
+    </form>
+
+    <h2>Thông tin lưu trên LocalStr</h2>
+    <div id="hienthi_thongtin"></div>
+
+    <script>
+        //khơi tạo form
+        const f_dangki = document.getElementById('f_dangki')
+        // lắng nghe sự kiện khi user ấn nút gửi thông tin thì sẽ lưu thông tin vào Local và hiển thị ngược lại
+        f_dangki.addEventListener("submit",function(e)
+        {
+            e.preventDefault();
+
+            //lấy thông tin từ form lưu vào vào 1 Object
+            const user ={
+                name:document.getElementById("name").value,
+                email: document.getElementById("email").value
+            };
+
+            //lưu
+            localStorage.setItem("Table_user",JSON.stringify(user))
+            // alert("lưu thành công")
+            hienthi_lenWeb();
+        }
+    );
+     // tạo 1 hàm hiển thị thông tin lên web
+    function hienthi_lenWeb(){
+        const saveInfo = JSON.parse(localStorage.getItem('Table_user'));
+
+        // nếu có thông tin thì hiển thị
+        if(saveInfo)
+    {
+        document.getElementById("hienthi_thongtin").innerHTML = `
+        <p> HỌ tên: ${saveInfo.name}<p>
+            <p> Email : ${saveInfo.email} </p>
+        
+        `
+    }
+    }
+
+   
+    </script>
+</body>
+</html>
